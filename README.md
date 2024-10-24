@@ -1,69 +1,67 @@
 
-# Zichun Mini Project 1
+# My CLI Tool
 
-This is a Python project template with a functioning `Makefile`, a `.devcontainer`, and basic setup for CI/CD using GitHub Actions. The project also includes unit tests and linting with `pylint`.
+A command-line tool built in Rust to perform various tasks efficiently.
 
-## Links
+## Installation
 
-- **Version control Source Code Management Repository**: [github repo](https://github.com/nogibjj/zichun-miniproject-1).
-- **Link to successful CI/CD run**: [Link to GitHub Actions](https://github.com/nogibjj/zichun-miniproject-1/actions).
+To install and use this tool, follow the steps below:
 
+### Prerequisites
+- Rust installed on your system. You can install Rust by following the instructions [here](https://www.rust-lang.org/tools/install).
 
-## Project Setup
+### Build from Source
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/nogibjj/zichun-miniproject-7.git
+   cd zichun-miniproject-7
+   ```
 
-### 1. Clone the Repository
+2. Build the project:
+   ```bash
+   cargo build --release
+   ```
 
-```bash
-git clone https://github.com/your-username/zichun-miniproject-1.git
-cd zichun-miniproject-1
-```
+3. The compiled binary will be located in the `target/release/` directory. You can copy it to a location in your `PATH` for global use:
+   ```bash
+   cp target/release/my_cli_tool /usr/local/bin/
+   ```
 
-### 2. Install Dependencies
+### Download Precompiled Binary
+Alternatively, you can download the precompiled binary from the latest GitHub release:
+1. Go to the [Releases](https://github.com/nogibjj/zichun-miniproject-7/releases) page.
+2. Download the binary for your operating system.
+3. Move the binary to a directory in your `PATH`:
+   ```bash
+   mv my_cli_tool /usr/local/bin/
+   chmod +x /usr/local/bin/my_cli_tool
+   ```
 
-You can install the required Python dependencies by running:
+## Usage
 
-```bash
-make setup
-```
-
-This will install all the packages listed in `requirements.txt`.
-
-### 3. Running the Linter
-
-To ensure your code follows proper Python style guidelines, run:
-
-```bash
-make lint
-```
-
-This will run `pylint` on the `src/main.py` file.
-
-### 4. Running Tests
-
-To run the unit tests using `pytest`, use the following command:
-
-```bash
-make test
-```
-
-The `Makefile` is set up to run the tests in the `tests/` directory.
-
-## Usage Instructions
-
-The project contains a simple `add` function and a main script. You can run the main script as follows:
+Once installed, you can use the tool from the terminal:
 
 ```bash
-python src/main.py
+my_cli_tool --input <file>
 ```
 
-The `main.py` file will print "Hello, world!" when executed.
+### Example
 
-## CI/CD Pipeline
+```bash
+my_cli_tool --input data.csv
+```
 
-This project uses GitHub Actions for Continuous Integration (CI). The workflow is defined in the `.github/workflows/ci.yml` file and runs automatically on every push to the main branch. The CI performs the following actions:
-- Linting with `pylint`
-- Running unit tests with `pytest`
+This will process the input file and output the results.
 
-## Development Environment with Devcontainer
+## Features
+- Accepts input files as arguments.
+- Flexible argument parsing using the `clap` crate.
+- Simple and efficient Rust implementation.
 
-A development container is included to ensure consistency in development environments. The `.devcontainer` folder contains a `Dockerfile` and `devcontainer.json` file for setting up the containerized development environment in tools like Visual Studio Code.
+## Contribution
+
+Feel free to open issues or pull requests to contribute to the project!
+
+## License
+
+This project is licensed under the MIT License.
