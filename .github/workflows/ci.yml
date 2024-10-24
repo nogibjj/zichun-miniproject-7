@@ -31,4 +31,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: my-cli-tool
-        path: target/release/my_cli_tool
+        path: target/release/my-cli-tool
