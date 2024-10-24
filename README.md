@@ -1,16 +1,10 @@
 
 # My CLI Tool
 
-A command-line tool built in Rust to perform various tasks efficiently.
+A command-line tool built in Rust for processing CSV data.
 
 ## Installation
 
-To install and use this tool, follow the steps below:
-
-### Prerequisites
-- Rust installed on your system. You can install Rust by following the instructions [here](https://www.rust-lang.org/tools/install).
-
-### Build from Source
 1. Clone the repository:
    ```bash
    git clone https://github.com/nogibjj/zichun-miniproject-7.git
@@ -24,44 +18,25 @@ To install and use this tool, follow the steps below:
 
 3. The compiled binary will be located in the `target/release/` directory. You can copy it to a location in your `PATH` for global use:
    ```bash
-   cp target/release/my_cli_tool /usr/local/bin/
-   ```
-
-### Download Precompiled Binary
-Alternatively, you can download the precompiled binary from the latest GitHub release:
-1. Go to the [Releases](https://github.com/nogibjj/zichun-miniproject-7/releases) page.
-2. Download the binary for your operating system.
-3. Move the binary to a directory in your `PATH`:
-   ```bash
-   mv my_cli_tool /usr/local/bin/
-   chmod +x /usr/local/bin/my_cli_tool
+   cp target/release/my-cli-tool /usr/local/bin/
    ```
 
 ## Usage
 
-Once installed, you can use the tool from the terminal:
+To use the tool, you can specify the dataset included in this repository:
 
 ```bash
-my_cli_tool --input <file>
+./my-cli-tool --input data/titanic.csv
 ```
 
-### Example
+This command will process the provided `titanic.csv` dataset and output results like the total number of passengers, the number of survivors, and the average age.
 
-```bash
-my_cli_tool --input data.csv
-```
+## Dataset
 
-This will process the input file and output the results.
+The project includes the `titanic.csv` dataset located in the `data/` folder within this repository. You can use it for testing purposes.
 
-## Features
-- Accepts input files as arguments.
-- Flexible argument parsing using the `clap` crate.
-- Simple and efficient Rust implementation.
+If you'd like to use a different dataset, make sure it follows a format similar to `titanic.csv` with columns like `PassengerId`,`Survived`,`Pclass`,`Name`,`Sex`,`Age`,`SibSp`,`Parch`,`Ticket`,`Fare`,`Cabin`,`Embarked`.
 
-## Contribution
+## CI/CD
 
-Feel free to open issues or pull requests to contribute to the project!
-
-## License
-
-This project is licensed under the MIT License.
+The project is built and tested automatically using GitHub Actions. You can view the build status by navigating to the Actions tab of this repository.

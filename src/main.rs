@@ -5,18 +5,18 @@ use csv::ReaderBuilder;
 
 #[derive(Debug, Deserialize)]
 struct Passenger {
-    passenger_id: u32,
-    survived: u8,
-    pclass: u8,
-    name: String,
-    sex: String,
-    age: Option<f32>, // Age might have missing values, so it's optional
-    sib_sp: u8,
-    parch: u8,
-    ticket: String,
-    fare: f32,
-    cabin: Option<String>,
-    embarked: Option<String>,
+    PassengerId: u32,
+    Survived: u8,
+    Pclass: u8,
+    Name: String,
+    Sex: String,
+    Age: Option<f32>, // Age might have missing values, so it's optional
+    SibSp: u8,
+    Parch: u8,
+    Ticket: String,
+    Fare: Option<f32>,
+    Cabin: Option<String>,
+    Embarked: Option<String>,
 }
 
 fn read_csv(file_path: &str) -> Result<Vec<Passenger>, Box<dyn Error>> {
@@ -32,19 +32,19 @@ fn read_csv(file_path: &str) -> Result<Vec<Passenger>, Box<dyn Error>> {
 }
 
 fn main() -> Result<(), Box<dyn Error>> {
-    let file_path = "data/titanic.csv"; // Change this to your actual CSV file path
+    let file_path = "data/titanic.csv"; 
     let passengers = read_csv(file_path)?;
 
     println!("Total number of passengers: {}", passengers.len());
 
-    let survivors: Vec<&Passenger> = passengers.iter().filter(|p| p.survived == 1).collect();
+    let survivors: Vec<&Passenger> = passengers.iter().filter(|p| p.Survived == 1).collect();
     println!("Number of survivors: {}", survivors.len());
 
     let total_age: f32 = passengers.iter()
-        .filter_map(|p| p.age)
+        .filter_map(|p| p.Age)
         .sum();
     let count_age: usize = passengers.iter()
-        .filter(|p| p.age.is_some())
+        .filter(|p| p.Age.is_some())
         .count();
     let average_age = total_age / count_age as f32;
     println!("Average age of passengers: {:.2}", average_age);

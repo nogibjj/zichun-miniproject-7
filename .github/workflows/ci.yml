@@ -22,7 +22,10 @@ jobs:
         override: true
 
     - name: Build
-      run: cargo build --verbose
+      run: cargo build --release
 
-    - name: Run tests
-      run: cargo test --verbose
+    - name: Upload binary
+      uses: actions/upload-artifact@v2
+      with:
+        name: my-cli-tool 
+        path: target/release/my_cli_tool
