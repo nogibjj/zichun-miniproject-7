@@ -1,4 +1,4 @@
-name: Python CI
+name: Rust CI
 
 on:
   push:
@@ -13,24 +13,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
+    - name: Set up Rust
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        override: true
 
-      - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
+    - name: Build
+      run: cargo build --verbose
 
-      - name: Lint with pylint
-        run: |
-          pylint src/main.py
-
-      - name: Run tests
-        env:
-          PYTHONPATH: ${{ github.workspace }}/src  # Set PYTHONPATH to include src
-        run: |
-          pytest tests
-
+    - name: Run tests
+      run: cargo test --verbose
