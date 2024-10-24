@@ -31,6 +31,8 @@ To use the tool, you can specify the dataset included in this repository:
 
 This command will process the provided `titanic.csv` dataset and output results like the total number of passengers, the number of survivors, and the average age.
 
+![image](imgs/image_1.png)
+
 ## Dataset
 
 The project includes the `titanic.csv` dataset located in the `data/` folder within this repository. You can use it for testing purposes.
@@ -39,4 +41,5 @@ If you'd like to use a different dataset, make sure it follows a format similar 
 
 ## CI/CD
 
-The project is built and tested automatically using GitHub Actions. You can view the build status by navigating to the Actions tab of this repository.
+The project is built and tested automatically using GitHub Actions. You can view the build status by navigating to the Actions tab of this repository.Also, see artifact here in the screenshot.
+![image](imgs/image.png)
