@@ -5,18 +5,18 @@ use serde::Deserialize;
 
 #[derive(Debug, Deserialize, PartialEq)]
 struct Passenger {
-    PassengerId: u32,
-    Survived: u8,
-    Pclass: u8,
-    Name: String,
-    Sex: String,
-    Age: Option<f32>,
-    SibSp: u8,
-    Parch: u8,
-    Ticket: String,
-    Fare: f32,
-    Cabin: Option<String>,
-    Embarked: Option<String>,
+    passenger_id: u32,
+    survived: u8,
+    pclass: u8,
+    name: String,
+    sex: String,
+    age: Option<f32>,
+    sib_sp: u8,
+    parch: u8,
+    ticket: String,
+    fare: f32,
+    cabin: Option<String>,
+    embarked: Option<String>,
 }
 
 fn read_csv(file_path: &str) -> Result<Vec<Passenger>, Box<dyn Error>> {
@@ -44,18 +44,18 @@ mod tests {
 
         // Test if first passenger matches expected data
         let expected_first_passenger = Passenger {
-            PassengerId: 1,
-            Survived: 1,
-            Pclass: 3,
-            Name: "John Doe".to_string(),
-            Sex: "male".to_string(),
-            Age: Some(22.0),
-            SibSp: 1,
-            Parch: 0,
-            Ticket: "A/5 21171".to_string(),
-            Fare: 7.25,
-            Cabin: None,
-            Embarked: Some("S".to_string()),
+            passenger_id: 1,
+            survived: 1,
+            pclass: 3,
+            name: "John Doe".to_string(),
+            sex: "male".to_string(),
+            age: Some(22.0),
+            sib_sp: 1,
+            parch: 0,
+            ticket: "A/5 21171".to_string(),
+            fare: 7.25,
+            cabin: None,
+            embarked: Some("S".to_string()),
         };
         assert_eq!(passengers[0], expected_first_passenger);
     }
