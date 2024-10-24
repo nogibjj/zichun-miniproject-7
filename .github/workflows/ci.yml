@@ -25,7 +25,7 @@ jobs:
       run: cargo build --release
 
     - name: Upload binary
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3  # Updated to v3
       with:
-        name: my-cli-tool 
+        name: my-cli-tool
         path: target/release/my_cli_tool
